@@ -1,0 +1,25 @@
+A reminder of cleaning up the data below has been sent to jiezhu@magic-inno.hk on 2023-03-28.
+test.r1.fastq	123
+A reminder of cleaning up the data below has been sent to yepeng@magic-inno.hk on 2023-03-28.
+test.r1.fastq	11231234134
+test.tmp.fastq	1
+A reminder of cleaning up the data below has been sent to jiezhu@magic-inno.hk on 2023-03-28.
+test.r1.fastq	123
+A reminder of cleaning up the data below has been sent to yepeng@magic-inno.hk on 2023-03-28.
+test.r1.fastq	11231234134
+test.tmp.fastq	1
+A reminder of cleaning up the data below has been sent to jiezhu@magic-inno.hk on 2023-03-28.
+test.r1.fastq	123
+A reminder of cleaning up the data below has been sent to yepeng@magic-inno.hk on 2023-03-28.
+test.r1.fastq	11231234134
+test.tmp.fastq	1
+A reminder of cleaning up the data below has been sent to jiezhu@magic-inno.hk on 2023-03-28.
+test.r1.fastq	123
+A reminder of cleaning up the data below has been sent to yepeng@magic-inno.hk on 2023-03-28.
+test.r1.fastq	11231234134
+test.tmp.fastq	1
+A reminder of cleaning up the data below has been sent to yepeng@magic-inno.hk on 2023-03-28.
+test.r1.fastq	11231234134
+test.tmp.fastq	1
+A reminder of cleaning up the data below has been sent to jiezhu@magic-inno.hk on 2023-03-28.
+asdf.fastq	1230123

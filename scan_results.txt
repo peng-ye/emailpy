@@ -1,0 +1,4 @@
+ye	test.r1.fastq	11231234134
+ye	test.r2.fastq	0
+ye	test.tmp.fastq	1
+jiezhu	asdf.fastq	1230123

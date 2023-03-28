@@ -32,8 +32,8 @@ def parse_scan_results(scan_results, threshold=0):
         s_r_list = list(s_r)
         for result in s_r_list:
             user, filename, filesize = result.strip().split("\t")
-            if int(filesize) > threshold:
-                user_results[user].append(filename+"\t"+filesize)
+            # if int(filesize) > threshold:
+            user_results[user].append(filename+"\t"+filesize)
        
     return(user_results)
 
@@ -99,8 +99,9 @@ Send reminders to users according to disk scanning results
                         help="""Scan results containing filename and filesize.""")
     
     # user email map
-    parser.add_argument('-m', '--map_file', required=True,
+    parser.add_argument('-m', '--map_file', required=False,
                         metavar='FILE',
+                        default="user_email_map.txt",
                         dest='map_file',
                         help='A map of user-email pairs.')
     

@@ -97,7 +97,7 @@ Send reminders to users according to disk scanning results
                         metavar='FILE',
                         dest='scan_results',
                         help="""Scan results containing filename and filesize.""")
-    
+
     # user email map
     parser.add_argument('-m', '--map_file', required=False,
                         metavar='FILE',

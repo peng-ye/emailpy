@@ -1,4 +1,0 @@
-user	email
-admin	jiezhu@magic-inno.hk
-ye	yepeng@magic-inno.hk
-jiezhu	jiezhu@magic-inno.hk

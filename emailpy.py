@@ -170,7 +170,7 @@ Send reminders to users according to disk scanning results
         scripts_list = find("compress.fastx.by."+user+".sh", "03.scripts/"+today)
         all_scripts = "\n".join(scripts_list)
         
-        message = header + "Relevant files may be compressed using the script(s) below.\n" + all_scripts + signature
+        message = header + "Relevant files may be compressed using the script(s) below.\n" + all_scripts + args.signature
         # feel free to customize this
         
         send_email(args.SMTPserver, args.sender, 

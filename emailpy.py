@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 from collections import defaultdict
 from datetime import date
 import smtplib
@@ -9,6 +6,16 @@ from email.message import EmailMessage
 # import mimetypes
 import sys
 from argparse import ArgumentParser
+import os, fnmatch
+
+# https://stackoverflow.com/questions/1724693/find-a-file-in-python
+def find(pattern, path):
+    result = []
+    for root, dirs, files in os.walk(path):
+        for name in files:
+            if fnmatch.fnmatch(name, pattern):
+                result.append(os.path.join(root, name))
+    return result
 
 def parse_user_email_map(map_file):
     # user email
@@ -97,7 +104,7 @@ Send reminders to users according to disk scanning results
                         metavar='FILE',
                         dest='scan_results',
                         help="""Scan results containing filename and filesize.""")
-
+    
     # user email map
     parser.add_argument('-m', '--map_file', required=False,
                         metavar='FILE',
@@ -137,6 +144,10 @@ Send reminders to users according to disk scanning results
                         default = "file_list.txt",
                         dest='attachment',
                         help="""Name for the attachement.""")
+    parser.add_argument('-sig', '--signature', required=False,
+                        default = "\n\nData Core Admin",
+                        dest='signature',
+                        help="""Signature.""")
     
     
     args = parser.parse_args()
@@ -155,14 +166,18 @@ Send reminders to users according to disk scanning results
     for user, results in user_results.items():
         email = user_email[user]
         all_results = "\n".join(results)
-                    
-        message = header # feel free to customize this
+        
+        scripts_list = find("compress.fastx.by."+user+".sh", "03.scripts/"+today)
+        all_scripts = "\n".join(scripts_list)
+        
+        message = header + "Relevant files may be compressed using the script(s) below.\n" + all_scripts + signature
+        # feel free to customize this
         
         send_email(args.SMTPserver, args.sender, 
                    args.USERNAME, args.PASSWORD,
                    email, args.subject, message, all_results, args.attachment)
         write_the_log(email, all_results, args.log_file, today)
     
+    
 if __name__ == "__main__":
     main()
-

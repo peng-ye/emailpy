@@ -1,32 +1,14 @@
-# emailpy
-usage: emailpy.py [-h] -r FILE -m FILE [-l LOG_FILE] [-sd SENDER]
-                  [-server SMTPSERVER] [-usr USERNAME] [-pwd PASSWORD]
-                  [-hd FILE] [-sj SUBJECT] [-a ATTACHMENT]
-
-Send reminders to users according to disk scanning results
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -r FILE, --scan_results FILE
-                        Scan results containing filename and filesize.
-  -m FILE, --map_file FILE
-                        A map of user-email pairs.
-  -l LOG_FILE, --log_file LOG_FILE
-                        Log file name.
-  -sd SENDER, --sender SENDER
-                        Sender of the email.
-  -server SMTPSERVER, --SMTPserver SMTPSERVER
-                        SMTP server.
-  -usr USERNAME, --USERNAME USERNAME
-                        Username of the sender email.
-  -pwd PASSWORD, --PASSWORD PASSWORD
-                        Password for the sender email.
-  -hd FILE, --header_file FILE
-                        Header.
-  -sj SUBJECT, --subject SUBJECT
-                        Subject of the email.
-  -a ATTACHMENT, --attachment ATTACHMENT
-                        Name for the attachement.
-# Example
+# Examples
+## email scanning results (with scripts)
 python emailpy.py --scan_results ./scan_results.txt --map_file ./user_email_map.txt
+
+
+## email stats for CPU usage
+### Case 1
+\# every 30min, email the stat of the avg CPU usage for the past 60s with 1s interval (wait for 30min)
+python email_cpu_usage_stat.py -e ye@hk -i 1 -t 60 -p src/avg_cpu_usage_once.sh -s 1800
+
+### Case 2
+\# email the stat of the avg CPU usage for each hour with 5min interval, if the stat is lower than 80%, with greetings :)
+python email_cpu_usage_stat.py -e ye@hk,jie@hk -i 300 -t 12 -p src/avg_cpu_usage_once.sh -th 80 -hd "Hi there. "
 
